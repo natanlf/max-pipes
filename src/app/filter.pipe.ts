@@ -1,7 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
+/*
+quando os dados são alterados o Angular não recarrega o Pipe,
+podemos forçar isso mas assim teremos menos desempenho. => pure: false
+Dessa forma o pipe e recalculado toda vez que os dados mudam
+mas isso pode levar a problemas de desempenho
+*/
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: false
 })
 export class FilterPipe implements PipeTransform {
 
